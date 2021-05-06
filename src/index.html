@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    <title>Renamer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script defer src="render.js" type="module"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <span class="icon column is-1 is-offset-11 my-icon block" id="my-info">
+          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+          </svg>
+        </span>
+        <div class="modal" id="info-module">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title">How to use:</p>
+              <button class="delete" id="close" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <!-- Content ... -->
+              <ol>
+                <li><p> Copy the path of the folder that contains the files that you want to rename.<br>You can do that with right click on the Explorer path.</p></li>
+                <li><p> Select which symbol or character do you want to remove from your files names.</p></li>
+                <li><p> Select what do you want instead of previous symbol.<br>This Character will replace all characters that you chose in step 2.</p></li>
+                <li><p> Pres the button and watch the magic happen!</p></li>
+              </ol>
+            </section>
+            <footer class="modal-card-foot">
+              <p>That's all folks, happy renaming!</p>
+            </footer>
+          </div>
+        </div>
+        <h1 class="title">
+          Welcome to Renamer!</h1>
+          <p class="subtitle">
+           Now you can easily <strong>RENAME</strong> your files!
+          </p>
+        <form id="renaming-form" >
+          <div class="field">
+            <svg id="arrow-1"width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 58C34.8919 68.5202 82.7189 85.2209 114.892 67.8627M111 58L135 67.8627L123.324 91.533M15 77.0678C34.8919 87.588 81.8108 101.396 118.784 82.9854"/>
+              </svg>
+              
+          <label class="label" for="dir-name">1) Please paste your files directory here: </label>
+          <div class="control">
+            <input class="input" type="text" name="dir-name" id="dir-name" placeholder="Enter your path">
+          </div>
+          <p class="help">If you need any help let me know!</p>
+        </div>
+        <div class="columns">
+          <div class="field column is-half">
+          <label class="label" for="select-name">2) What you want to RENAME: </label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="select-name">
+                <!-- !VALUE ORDER IS IMPORTANT AND SHOULD BE THE SAME INN select-rename OPTIONS!! (ščž -> scz) -->
+                <option value=" ">(space)</option>
+                <option value="-">-</option>
+                <option value="_">_</option>
+                <option value="ščž">ščž</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field column is-half is-mobile">
+          <label class="label" for="select-rename">3) NEW NAME conditions here: </label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="select-rename">
+              <!-- !VALUE ORDER IS IMPORTANT AND SHOULD BE THE SAME INN select-name OPTIONS!! (scz <- ščž) -->
+                <option value="-">-</option>
+                <option value="_">_</option>
+                <option value="scz">scz</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <svg id="arrow-2"width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 58C34.8919 68.5202 82.7189 85.2209 114.892 67.8627M111 58L135 67.8627L123.324 91.533M15 77.0678C34.8919 87.588 81.8108 101.396 118.784 82.9854"/>
+          </svg>
+          <svg id="arrow-3"width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 58C34.8919 68.5202 82.7189 85.2209 114.892 67.8627M111 58L135 67.8627L123.324 91.533M15 77.0678C34.8919 87.588 81.8108 101.396 118.784 82.9854"/>
+            </svg>
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary is-fullwidth" id="submit-btn" type="submit">let's do it!</button>
+        </div>
+        </form>
+      </div>
+    </div>
+    </section>
+  </body>
+</html>
